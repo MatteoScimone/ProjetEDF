@@ -1,0 +1,75 @@
+﻿<Window x:Class="ProjetEDFWPF.frmGstEdfAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetEDFWPF"
+        mc:Ignorable="d"
+        Title="frmGstEdfAdmin" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Gestion EDF" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"></TextBlock>
+        <ListBox Name="lstControleur" SelectionChanged="lstControleur_SelectionChanged"
+                 Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="30" Text="{Binding id}"></TextBlock>
+                        <TextBlock Width="200" Text="{Binding nom}"></TextBlock>
+                        <TextBlock Width="80" Text="{Binding prenom}"></TextBlock>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="lstClient" SelectionChanged="lstClient_SelectionChanged"
+            Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Name="stk">
+                        <TextBlock Width="30" Text="{Binding identifiant}"></TextBlock>
+                        <TextBlock Width="200" Text="{Binding nom}"></TextBlock>
+                        <TextBlock Width="80" Text="{Binding prenom}"></TextBlock>
+                        <TextBlock Width="50" Text="{Binding ancienReleve}"></TextBlock>
+                        <TextBlock Width="30" Text="{Binding dernierReleve}"></TextBlock>
+                        <TextBlock Width="30" Text="{Binding idControleur}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0.333,9.667,69.667" Grid.RowSpan="2">
+            <TextBlock Height="33" Text="Nom du controleur"  HorizontalAlignment="Left" FontSize="30" FontFamily="Monotype Corsiva"/>
+            <TextBox x:Name="txtNomControl"  HorizontalContentAlignment="Left"  Margin="0,0,-0.333,0" Height="32"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Margin="0,0.333,9.667,69.667" Grid.RowSpan="2">
+            <TextBlock Height="33" Text="Prenom du controleur"  HorizontalAlignment="Left" FontSize="30" FontFamily="Monotype Corsiva"/>
+            <TextBox x:Name="txtPrenomControl"  HorizontalContentAlignment="Left"  Margin="0,0,-0.333,0" Height="32"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0.333,65.333,9.333,4.667" Grid.RowSpan="2" Grid.Column="3">
+            <TextBlock Height="33" Text="Nom du client"  HorizontalAlignment="Left" FontSize="30" FontFamily="Monotype Corsiva"/>
+            <TextBox x:Name="txtNomClientt"  HorizontalContentAlignment="Left"  Margin="0,0,-0.333,0" Height="32"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="3" Margin="0.333,0.333,10.333,69.667" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+            <TextBlock Height="33" Text="Prenom du client"  HorizontalAlignment="Left" FontSize="30" FontFamily="Monotype Corsiva"/>
+            <TextBox x:Name="txtPrenomClient"  HorizontalContentAlignment="Right"  Margin="0,0,-0.333,0" Height="32"></TextBox>
+        </StackPanel>
+
+        <Button Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" Content="inséré un client" Name="btnInsereClient" Click="btnInsereClient_Click" Margin="0.333,5.333,0.333,9.667"/>
+        <Button Grid.Row="5" Grid.ColumnSpan="3" Content="inséré un controleur" Name="btnInsereControleur" Click="btnInsereControleur_Click" Margin="-9,5.333,9.667,9.667"/>
+    </Grid>
+</Window>
